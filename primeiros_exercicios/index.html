@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Teste
+        </title>
+    </head>
+    <body>
+        <button class="btn">Criar</button>
+        <ul>
+            <li class="lista"></li>
+            <li class="lista"></li>
+            <li class="lista"></li>
+        </ul>
+        
+    </body>
+    <script>
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        var botao = document.querySelector('.btn').onclick = () =>
+        {
+            var lista = document.querySelectorAll('.lista');
+
+            for(var i = 0; i < lista.length; i++)
+            {
+                
+                lista[i].innerHTML = this.nomes[i];
+            }
+        };
+
+
+        // var index = 1;
+        // var selecionado = document.querySelector('.btn').onclick = function(){
+        //     var elemento1 = document.querySelector('.teste');
+        //     var elemento = document.createElement('div');
+        //     elemento.style.paddingTop = '70px';
+        //     elemento.style.width = '100px';
+        //     elemento.style.height = '100px';
+        //     elemento.style.cssFloat = 'left';
+        //     elemento.style.backgroundColor = '#000';
+        //     elemento.innerText = 'Diego Aquino';
+        //     elemento.style.color = '#fff';
+        //     elemento.className = 'divnova' + index;
+        //     elemento.onmouseover = function(){
+        //         elemento.style.backgroundColor = getRandomColor();
+        //     };
+        //     elemento.onmouseout = function(){
+        //         elemento.style.backgroundColor = '#000';
+        //     };
+        //     elemento1.appendChild(elemento);
+        //     ++index;
+        // };
+
+        // function getRandomColor() {
+        //     var letters = "0123456789ABCDEF";
+        //     var color = "#";  for (var i = 0; i < 6; i++) 
+        //     {    
+        //         color += letters[Math.floor(Math.random() * 16)];
+        //     }  
+        //     return color;
+        //     }
+        
+    </script>
+</html>
