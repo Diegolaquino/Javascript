@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text">
+    <button>Teste</button>
+    <div class="app">
+        <ul>
+
+        </ul>
+    </div>
+</body>
+<script>
+    var todos;
+
+    var corpo = document.querySelector('body').onload = () =>{
+        this.todos = JSON.parse((localStorage.getItem('todos'))) || [];
+        listarTodos(this.todos);
+    }   
+
+    var botao = document.querySelector('button').onclick = () => {
+        var inputS = document.querySelector('input').value;
+        Add(inputS);
+        listarTodos(this.todos);
+    };
+
+    function Add(item)
+    {
+        this.todos.push(item);
+        AddLocalStorage();
+    };
+
+
+    function listarTodos(listaTodos)
+    {
+        var ul = document.querySelector('ul');
+        var lis = document.querySelectorAll('li');
+
+        for(li of lis)
+        {
+            ul.removeChild(li);
+        }
+
+        for(todo of listaTodos)
+        {
+            var li = document.createElement('li');
+            li.innerHTML = todo;
+            var a = document.createElement('a');
+            var pos = listaTodos.indexOf(todo);
+            a.setAttribute('href', '#');
+            a.setAttribute('onclick', 'deletar(' + pos + ')');
+            a.innerHTML = ' Excluir';
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+       
+    };
+
+    function deletar(pos)
+    {
+        this.todos.splice(pos, 1);
+        AddLocalStorage();
+        listarTodos(this.todos);
+    }
+
+    function AddLocalStorage()
+    {
+        localStorage.setItem('todos', JSON.stringify(this.todos));
+    }
+
+   
+    //function removeFilho
+</script>
+</html>
