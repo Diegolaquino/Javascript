@@ -9,7 +9,7 @@
 <body>
 
     <input type="text">
-    <button>Teste</button>
+    <button>Add</button>
     <div class="app">
         <ul>
 
@@ -26,8 +26,16 @@
 
     var botao = document.querySelector('button').onclick = () => {
         var inputS = document.querySelector('input').value;
-        Add(inputS);
-        listarTodos(this.todos);
+        if(inputS.trim() == '')
+        {
+            alert('Insira uma tarefa');
+        }
+        else{
+            Add(inputS);
+            listarTodos(this.todos);
+            document.querySelector('input').value = '';
+        }
+        
     };
 
     function Add(item)
