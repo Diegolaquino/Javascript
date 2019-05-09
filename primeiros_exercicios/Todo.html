@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        Criar
+    </button>
+    <input type="text">
+
+    <div class="todo">
+        <ul>
+
+        </ul>
+    </div>
+    
+
+</body>
+<script>
+    var todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+    var botaoCriar = document.querySelector('button').onclick = () => {
+        var valorInput = document.querySelector('input').value;
+        debugger;
+        add(valorInput);
+    };
+
+    function add(item)
+    {
+        todos.push(item);
+        ListarTodos();
+    };
+
+    function deletar(posicao)
+    {
+
+    };
+
+    function ListarTodos()
+    {
+        for(todo of todos)
+        {
+            var elementoLi = this.criaElementoNovo('li');
+            var elementoA = this.criaElementoNovo('a');
+            elementoA.innerText = 'Excluir'
+            elementoA.setAttribute('href', '#');
+            elementoA.setAttribute('class', 'clique');
+            elementoA.innerText = todo.value;
+
+            elementoLi.appendChild(elementoA);
+            this.todos.appendChild(elementoLi);
+        }
+    }
+
+    function criaElementoNovo(elemento)
+    {
+        return document.createElement(elemento);
+    }
+</script>
+</html>
