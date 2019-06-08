@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Requisicao</title>
+</head>
+<body>
+    <input type>
+    <button>Pesquisar</button>
+    <div>
+
+    </div>
+    <script>
+
+        var botao = document.querySelector('button').onclick = () => {
+            var inputCep = document.querySelector('input').value;
+
+            var requisao = new XMLHttpRequest();
+            requisao.open('GET', 'https://viacep.com.br/ws/21311220/json/', true);
+            requisao.send(null);
+
+            if (requisao.onreadystatechange === 4)
+            {
+                console.log(requisao.onreadystatechange);
+                debugger;
+            }
+            else{
+                alert(requisao.responseText);
+            }
+
+
+        };
+
+    </script>
+</body>
+</html>
