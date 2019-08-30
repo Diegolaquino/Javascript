@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tooltip</title>
+   
+</head>
+<body>
+    <div class="teste" data-tooltip arial-label="Diego 1">
+        Diego 1
+    </div>
+    <div  class="teste"  data-tooltip arial-label="Diego 2">
+        Diego 2
+    </div>
+    <div class="teste"  data-tooltip arial-label="Diego 3">
+        Diego 3
+    </div>
+    
+</body>
+<script>
+    const tooltips = document.querySelectorAll('[data-tooltip]');
+
+    console.log(tooltips);
+
+    tooltips.forEach((item) =>{
+        item.addEventListener('mouseover', onMouseOver);
+    });
+
+    function onMouseOver(event){
+        const tooltipBox = criarTooltipBox(this);
+       
+        onMouseMove.tooltipBox = tooltipBox;
+        this.addEventListener('mousemove', onMouseMove);
+
+        onMouseLeave.tooltipBox = tooltipBox;
+        onMouseLeave.element = this;
+        this.addEventListener('mouseleave', onMouseLeave);
+       
+
+        
+    }
+
+    const onMouseLeave = {
+        handleEvent(){
+            this.tooltipBox.remove();
+            this.element.removeEventListener('mouseleave', onMouseLeave);
+            this.element.removeEventListener('mousemove', onMouseMove);
+
+        }
+    }
+
+    const onMouseMove ={
+        handleEvent(event){
+            this.tooltipBox.style.top = event.pageY + 20 + 'px';
+            this.tooltipBox.style.left = event.pageX + 20 + 'px';
+        }
+    }
+
+    function criarTooltipBox(element){
+        const tooltipBox = document.createElement('div');
+        const text = element.getAttribute('arial-label');
+        tooltipBox.classList.add('tooltip');
+        tooltipBox.innerText = text;
+        document.body.append(tooltipBox);
+        return tooltipBox;
+    }
+</script>
+ <style>
+        .tooltip{
+            position: absolute;
+            z-index: 500;
+            background: rgba(0,0,0,.6);
+            box-shadow: 0 0 0 2px #FB5, 0 0 0 6px rgba(0,0,0,.6);
+            padding: .5rem;
+            color: white;
+            font-family: monospace; 
+            font-weight: bold;
+            font-size: .875rem;
+            max-width: 170px;
+            border-radius: 2px;
+            top: 0px;
+            left: 0px;
+        }
+        .teste{
+            height: 400px;
+            width: 400px;
+            background-color: brown;
+            margin-top: 10px;
+        }
+        
+        </style>
+</html>
