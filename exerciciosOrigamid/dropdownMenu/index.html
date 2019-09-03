@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DropDownMenu</title>
+    <style>
+    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, article, footer, header, nav, section, main {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    a {
+	    text-decoration: none;
+        color: inherit;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    h1, h2, h3, h4, h5, h6, p, a, ul {
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+    nav{
+        background-color: chocolate;
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+    }
+    li{
+        display: inline;
+        padding: 10px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    [data-dropdown]{
+        position: relative;
+    }
+    [data-dropdown] .dropdown-menu{
+        display: none;
+    }
+    [data-dropdown]:hover .dropdown-menu{
+        display: block;
+    }
+    .dropdown-menu{
+        position: absolute;
+        top: 38px;
+        right: 40px;
+        background: #E54;
+        border: 2px solid #333;
+        z-index: 200;
+    }
+    .dropdown-menu::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: -10px;
+        width: 0px;
+        height: 0px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #E54;
+    }
+    .dropdown-menu li a:hover{
+        color: wheat;
+    }
+
+    @keyframes show-up {
+        from{
+            opacity: 0;
+            
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <nav class="menu" data-menu="suave">
+            <ul>
+                <li><a href="#animais">Animais</a></li>
+                <li data-dropdown>
+                    <a href="sobre">Sobre</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="empresa.html">A Empresa</a></li>
+                        <li><a href="equipe.html">Equipe</a></li>
+                        <li><a href="socios.html">Sócios</a></li>
+                        <li><a href="investidores.html">Investidores</a></li>
+                    </ul>
+                </li>
+                <li><a href="#faq"></a></li>
+                <li><a href="#contato"></a></li>
+                <li><a data-modal="abrir" href="login.hml">Login &#10142</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
