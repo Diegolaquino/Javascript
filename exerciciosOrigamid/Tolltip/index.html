@@ -61,6 +61,7 @@
     function criarTooltipBox(element){
         const tooltipBox = document.createElement('div');
         const text = element.getAttribute('arial-label');
+		debugger;
         tooltipBox.classList.add('tooltip');
         tooltipBox.innerText = text;
         document.body.append(tooltipBox);

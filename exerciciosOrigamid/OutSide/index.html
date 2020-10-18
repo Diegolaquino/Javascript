@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div onmouseover="criaDiv(this)" onmouseout="tiraDiv()" class="teste"></div>
+
+    <script>
+    var div1 = document.querySelector('.teste');
+
+    function criaDiv(event){
+        let div = document.createElement('div');
+        div.style.backgroundColor = 'black';
+        div.style.color = 'white';
+        div.style.textAlign = 'center';
+        div.style.width = '100px';
+        div.style.height = '100px';
+        div.innerText = 'Diego Aquino';
+        div.style.position = 'absolute';
+        div.id = 'diego';
+        div.style.top = '20' + 'px';
+        console.log(event);
+        div1.appendChild(div);
+    }
+
+    function tiraDiv(){
+        let div = document.getElementById('diego');
+        div1.removeChild(div);
+    }
+
+    </script>
+</body>
+
+</html>
